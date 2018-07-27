@@ -76,3 +76,17 @@ body {
 .disabled {
   pointer-events: none;
 }
+
+.hidden {
+  display: none;
+}
+
+.logo {
+  position: relative;
+  pointer-events: auto;
+  cursor: pointer;
+  font-size: 50px;
+  margin: auto;
+  margin-top: 5px;
+  color: #fff;
+}
