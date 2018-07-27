@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.rectangle {
+  width: 307px;
+  height: 45px;
+  border-radius: 100px;
+  border: solid 1px rgb(251, 251, 251);
+}
+
+.option-notactive {
+  color: rgb(255, 255, 255);
+}
+
+.option-active {
+  color: rgb(230, 101, 73);
+}
+
+.option {
+  width: 79px;
+  height: 18px;
+  font-family: Muli;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+
+.container {
+  width: 710px;
+  height: 365px;
+  border-radius: 8px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(250, 145, 97, 0.7),
+    rgba(247, 59, 28, 0.69)
+  );
+  box-shadow: 0 2px 12px 6px rgba(167, 196, 220, 0.5);
+  margin: 50px auto;
+}
