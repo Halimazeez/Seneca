@@ -4,25 +4,13 @@ body {
   font-family: sans-serif;
 }
 
+/*Base element design, see app.css for responsive design */
 .rectangle {
   width: 307px;
   height: 45px;
   border-radius: 100px;
   border: solid 1px rgb(251, 251, 251);
   display: flex;
-}
-
-.option-notactive {
-  color: rgb(255, 255, 255);
-}
-
-.option-active {
-  color: rgb(230, 101, 73);
-  width: 163px;
-  height: 45px;
-  border-radius: 100px;
-  background-color: rgba(249, 249, 249, 0.5);
-  box-shadow: 0 0 6px 1px rgba(195, 51, 51, 0.5);
 }
 
 .option {
@@ -43,11 +31,6 @@ body {
   width: 710px;
   height: 365px;
   border-radius: 8px;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(250, 145, 97, 0.7),
-    rgba(247, 59, 28, 0.69)
-  );
   box-shadow: 0 2px 12px 6px rgba(167, 196, 220, 0.5);
   margin: 50px auto;
   user-select: none;
@@ -61,4 +44,30 @@ body {
 
 .row {
   padding-bottom: 19px;
+}
+
+.paragraph {
+  display: flex;
+  justify-content: center;
+  padding-top: 18px;
+  height: 18px;
+  font-family: Muli;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.4px;
+  color: rgb(255, 255, 255);
+}
+
+.option-active {
+  min-width: 163px;
+  height: 45px;
+  border-radius: 100px;
+  background-color: rgba(249, 249, 249, 0.5);
+}
+
+.option-notactive {
+  color: rgb(255, 255, 255);
 }

@@ -1,32 +1,30 @@
 import React, { Component } from 'react';
 import './App.css';
 import PropTypes from 'prop-types';
-
 import Toggle from './Toggle';
 
 class App extends Component {
   static propTypes = {
     options: PropTypes.array,
-    disabled: PropTypes.bool,
     correct: PropTypes.bool
   };
 
-  //Array for each toggle component value as key
   static defaultProps = {
-    disabled: false,
-    options: [0, 0, 0],
-    correct: false
+    correct: false,
+    options: [0, 0, 0]
   };
+
   state = {
-    options: [0, 1, 0]
+    correct: false,
+    options: [0, 0, 0]
   };
 
   disable = () => {
-    this.setState({ disabled: true });
+    this.setState({ correct: true });
   };
 
   enable = () => {
-    this.setState({ disabled: false });
+    this.setState({ correct: false });
   };
 
   change = (arrayIndex, row) => {
@@ -50,9 +48,27 @@ class App extends Component {
     );
   };
 
+  check = () => {
+    const { options } = this.state;
+    if (options[0] === 0 && options[1] === 1 && options[2] === 0) {
+      this.disable();
+    } else {
+      //only for debug purposes
+      this.enable();
+    }
+  };
+
   render() {
+    const { correct } = this.state;
     return (
-      <div className="container">
+      <div
+        className={
+          correct === false
+            ? 'container container-correct'
+            : 'container container-incorrect'
+        }
+        disabled={this.state.correct}
+      >
         <div className="wrapper">
           {this.state.options.map((num, index) => (
             <div className="row" key={index}>
@@ -60,9 +76,13 @@ class App extends Component {
                 arrayIndex={num}
                 row={index}
                 changeIndex={this.change.bind(this)}
+                correct={correct}
               />
             </div>
           ))}
+          <div className="paragraph">
+            The answer is {this.state.correct ? 'correct' : 'in-correct'}
+          </div>
         </div>
       </div>
     );

@@ -1,0 +1,27 @@
+/* responsive design colouring elements 
+   Stripped similar design to a base style stored in index.css*/
+.container-incorrect {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(71, 228, 193),
+    rgb(7, 205, 221)
+  );
+}
+
+.container-correct {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(250, 145, 97, 0.7),
+    rgba(247, 59, 28, 0.69)
+  );
+}
+
+.option-active-incorrect {
+  color: rgb(230, 101, 73);
+  box-shadow: 0 0 6px 1px rgba(195, 51, 51, 0.5);
+}
+
+.option-active-correct {
+  color: rgb(0, 176, 147);
+  box-shadow: 0 0 6px 1px rgba(1, 115, 101, 0.5);
+}
