@@ -9,6 +9,7 @@ body {
   height: 45px;
   border-radius: 100px;
   border: solid 1px rgb(251, 251, 251);
+  display: flex;
 }
 
 .option-notactive {
@@ -17,11 +18,18 @@ body {
 
 .option-active {
   color: rgb(230, 101, 73);
+  width: 163px;
+  height: 45px;
+  border-radius: 100px;
+  background-color: rgba(249, 249, 249, 0.5);
+  box-shadow: 0 0 6px 1px rgba(195, 51, 51, 0.5);
 }
 
 .option {
-  width: 79px;
-  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   font-family: Muli;
   font-size: 14px;
   font-weight: bold;
@@ -29,7 +37,6 @@ body {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: 0.4px;
-  text-align: center;
 }
 
 .container {
@@ -43,4 +50,15 @@ body {
   );
   box-shadow: 0 2px 12px 6px rgba(167, 196, 220, 0.5);
   margin: 50px auto;
+  user-select: none;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 67px 199px;
+}
+
+.row {
+  padding-bottom: 19px;
 }
