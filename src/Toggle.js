@@ -4,6 +4,7 @@ import { data } from './data';
 import classNames from 'classnames';
 
 class Toggle extends Component {
+  //es7 proptypes
   static propTypes = {
     changeIndex: PropTypes.func,
     arrayIndex: PropTypes.number,
@@ -16,33 +17,29 @@ class Toggle extends Component {
     this.props.changeIndex(this.props.arrayIndex, this.props.row);
   };
 
+  //functional styling gather using classNames with passed i to data ref
+  //usage is such as an automatic event handler (React strongpoint)
+  getClassNames = i => {
+    const { arrayIndex, correct } = this.props;
+
+    console.log('called');
+    return classNames({
+      option: true,
+      'option-active': arrayIndex === i,
+      'option-notactive': arrayIndex != i,
+      'option-active-incorrect': arrayIndex === i && correct === false,
+      'option-active-correct': arrayIndex === i && correct === true
+    });
+  };
   render() {
-    const { row, arrayIndex, correct } = this.props;
-
-    const getClassNamesOne = classNames({
-      option: true,
-      'option-active': arrayIndex === 0,
-      'option-notactive': arrayIndex != 0,
-      'option-active-incorrect': arrayIndex === 0 && correct === false,
-      'option-active-correct': arrayIndex === 0 && correct === true
-    });
-
-    const getClassNamesTwo = classNames({
-      option: true,
-      'option-active': arrayIndex === 1,
-      'option-notactive': arrayIndex != 1,
-      'option-active-incorrect': arrayIndex === 1 && correct === false,
-      'option-active-correct': arrayIndex === 1 && correct === true
-    });
-
-    console.log(arrayIndex);
+    const { row } = this.props;
 
     return (
       <div className="rectangle">
-        <div onClick={this.sendchange} className={getClassNamesOne}>
+        <div onClick={this.sendchange} className={this.getClassNames(0)}>
           {data.text[row][1]}
         </div>
-        <div onClick={this.sendchange} className={getClassNamesTwo}>
+        <div onClick={this.sendchange} className={this.getClassNames(1)}>
           {data.text[row][2]}
         </div>
       </div>

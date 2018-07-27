@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Toggle from './Toggle';
 
 class App extends Component {
+  //es7 proptypes
   static propTypes = {
     options: PropTypes.array,
     correct: PropTypes.bool
@@ -16,7 +17,7 @@ class App extends Component {
 
   state = {
     correct: false,
-    options: [0, 0, 0]
+    options: [0, 0, 1]
   };
 
   disable = () => {
@@ -38,6 +39,7 @@ class App extends Component {
     console.log(arrayIndex);
 
     //cause a re-render of components and updating new state
+    //use callback function to check if nextProps give correct answer
     this.setState(
       {
         options
@@ -50,6 +52,7 @@ class App extends Component {
 
   check = () => {
     const { options } = this.state;
+    //disable input if answer is correct
     if (options[0] === 0 && options[1] === 1 && options[2] === 0) {
       this.disable();
     } else {
@@ -81,7 +84,7 @@ class App extends Component {
             </div>
           ))}
           <div className="paragraph">
-            The answer is {this.state.correct ? 'correct' : 'in-correct'}
+            The answer is {this.state.correct ? 'correct!' : 'incorrect.'}
           </div>
         </div>
       </div>
