@@ -25,6 +25,7 @@ body {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: 0.4px;
+  cursor: pointer;
 }
 
 .container {
@@ -70,4 +71,8 @@ body {
 
 .option-notactive {
   color: rgb(255, 255, 255);
+}
+
+.disabled {
+  pointer-events: none;
 }

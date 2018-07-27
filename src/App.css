@@ -25,3 +25,20 @@
   color: rgb(0, 176, 147);
   box-shadow: 0 0 6px 1px rgba(1, 115, 101, 0.5);
 }
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.hidden {
+  display: none;
+}
+
+.logo {
+  position: relative;
+  pointer-events: auto;
+  cursor: pointer;
+  font-size: 50px;
+  margin: auto;
+  margin-top: 5px;
+}

@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import './App.css';
 import PropTypes from 'prop-types';
 import Toggle from './Toggle';
-
+import Refresh from './Refresh';
 class App extends Component {
-  //es7 proptypes
+  //es7 proptypes and class intitalisation
   static propTypes = {
     options: PropTypes.array,
-    correct: PropTypes.bool
+    correct: PropTypes.bool,
+    basestate: PropTypes.object
   };
 
   static defaultProps = {
     correct: false,
-    options: [0, 0, 0]
+    options: [0, 0, 1]
   };
 
   state = {
@@ -20,21 +21,21 @@ class App extends Component {
     options: [0, 0, 1]
   };
 
-  disable = () => {
+  disable() {
     this.setState({ correct: true });
-  };
+  }
 
-  enable = () => {
+  enable() {
     this.setState({ correct: false });
-  };
+  }
 
-  change = (arrayIndex, row) => {
+  change(arrayIndex, row) {
     const { options } = this.state;
 
-    //get next value (aka nextProps)
+    //get opposite value (aka nextProps) to current state
     let newnum = (arrayIndex = 1 - arrayIndex);
 
-    //set options[index ] to oppposite value for toggle swap
+    //set options[index] to oppposite value for toggle swap
     options[row] = newnum;
     console.log(arrayIndex);
 
@@ -48,9 +49,9 @@ class App extends Component {
         this.check();
       }
     );
-  };
+  }
 
-  check = () => {
+  check() {
     const { options } = this.state;
     //disable input if answer is correct
     if (options[0] === 0 && options[1] === 1 && options[2] === 0) {
@@ -59,6 +60,13 @@ class App extends Component {
       //only for debug purposes
       this.enable();
     }
+  }
+
+  reset = () => {
+    this.setState({
+      correct: false,
+      options: [0, 0, 1]
+    });
   };
 
   render() {
@@ -70,9 +78,8 @@ class App extends Component {
             ? 'container container-correct'
             : 'container container-incorrect'
         }
-        disabled={this.state.correct}
       >
-        <div className="wrapper">
+        <div className={correct ? 'disabled wrapper' : 'wrapper'}>
           {this.state.options.map((num, index) => (
             <div className="row" key={index}>
               <Toggle
@@ -86,6 +93,7 @@ class App extends Component {
           <div className="paragraph">
             The answer is {this.state.correct ? 'correct!' : 'incorrect.'}
           </div>
+          <Refresh reset={this.reset.bind(this)} correct={correct} />
         </div>
       </div>
     );

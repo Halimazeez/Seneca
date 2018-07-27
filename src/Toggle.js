@@ -21,12 +21,10 @@ class Toggle extends Component {
   //usage is such as an automatic event handler (React strongpoint)
   getClassNames = i => {
     const { arrayIndex, correct } = this.props;
-
-    console.log('called');
     return classNames({
       option: true,
       'option-active': arrayIndex === i,
-      'option-notactive': arrayIndex != i,
+      'option-notactive': arrayIndex !== i,
       'option-active-incorrect': arrayIndex === i && correct === false,
       'option-active-correct': arrayIndex === i && correct === true
     });
